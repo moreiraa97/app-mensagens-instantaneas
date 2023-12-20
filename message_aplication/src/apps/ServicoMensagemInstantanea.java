@@ -1,31 +1,18 @@
 package apps;
 
+
 public abstract class ServicoMensagemInstantanea {
 	
-	public void enviarMensagem(){
-		
-		validarConexao();
-		
-		System.out.println("Enviando mensagem");
+	public abstract void enviarMensagem();
 	
-		salvarHistoricoMensagem();
+	public abstract void receberMensagem();
 	
+	public abstract void salvarHistoricoMensagem();
+	
+	
+	//somente as classes filhas conhecem este método
+	protected void validarConexao(){
+		System.out.println("\nValidando se está conectado");
 	}
-	
-	
-	
-	public void receberMensagem(){
-		System.out.println("Recebendo mensagem");
-	}
-	
-	private void validarConexao(){
-		System.out.println("Validando se está conectado");
-	}
-	
-	private void salvarHistoricoMensagem(){
-		System.out.println("Salvando histórico da mensagem");
-	}
-	
-	
 	
 }

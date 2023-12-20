@@ -4,22 +4,20 @@ public class UserPc {
 	
 	public static void main(String[] args) {
 	
-		MsnMessenger msn = new MsnMessenger();
-		System.out.println("\nMSN Messenger: ");
-		msn.enviarMensagem();
-		msn.receberMensagem(); 
-
+		ServicoMensagemInstantanea smi = null; 
 		
-		FacebookMessenger fcb = new FacebookMessenger();
-		System.out.println("\nFacebook Messenger: ");
-		fcb.enviarMensagem();
-		fcb.receberMensagem();
-	
+		String appEscolhido = "telegram";
 		
-		Telegram tlg = new Telegram();
-		System.out.println("\nTelegram Messenger: ");
-		tlg.enviarMensagem();
-		tlg.receberMensagem();
+		if(appEscolhido.equals("msn"))
+			smi = new MsnMessenger();
+		else if(appEscolhido.equals("facebook"))
+			smi = new FacebookMessenger();
+		else if(appEscolhido.equals("telegram"))
+			smi = new Telegram();
+		
+		
+		smi.enviarMensagem();
+		smi.receberMensagem();
 		
 	}
 }
